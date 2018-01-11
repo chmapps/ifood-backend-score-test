@@ -1,4 +1,4 @@
-package ifood.score.order;
+package ifood.score.events;
 
 import static ifood.score.mock.generator.RandomishPicker._int;
 
@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import ifood.score.mock.generator.order.OrderPicker;
+import ifood.score.order.Order;
 
 @Service
 public class OrderCheckoutMock {
@@ -23,7 +24,7 @@ public class OrderCheckoutMock {
 	
 	private static OrderPicker picker = new OrderPicker();
 	
-	@Scheduled(fixedRate=3*1000)
+	@Scheduled(fixedRate=1*1000)
 	public void checkoutFakeOrder(){
 		IntStream.rangeClosed(1, _int(2, 12)).forEach(t -> {
 			Order order = picker.pick();
@@ -34,7 +35,7 @@ public class OrderCheckoutMock {
 		});
 	}
 	
-	@Scheduled(fixedRate=30*1000)
+	@Scheduled(fixedRate=10*1000)
 	public void cancelFakeOrder(){
 		IntStream.range(1, _int(2, cancellantionQueue.size() > 2 ? cancellantionQueue.size() : 2)).forEach(t ->{
 			UUID orderUuid = cancellantionQueue.poll();
