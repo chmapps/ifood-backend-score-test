@@ -20,6 +20,9 @@ We also would like you to check our module `score-order-generator` and give us a
 * Data Structures
 * Code organization
 
+O projeto `score-order-generator` é responsável por gerar as informações de "orders". Para isso, utiliza o Patter Factory, criando os objetos de pedido, item, categoria e menu a partir da Interface Piker. Também utiliza Singleton para prover uma única instância dos objetos de repositório, garantindo que as informações da instância sejam compartilhadas por quem a chamar.
+Desta forma, encapsula as regras pertinentes a criação dos objetos dentros deste módulo, reduzindo o acoplamento e complexidade para que o for consumir.
+
 Fork this repository and submit your code.
 
 ## Business Rules
